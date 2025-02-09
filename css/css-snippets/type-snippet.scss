@@ -1,0 +1,130 @@
+.uppercase {
+	text-transform: uppercase;
+}
+.centred, .centered, .align-center, .align-centre, .alignCentre, .alignCenter {
+	text-align:center;
+}
+.alignRight, .align-right  {
+	text-align:right;
+}
+.alignLeft, .align-left  {
+	text-align:left;
+}
+.underline {
+    border-bottom: 1px solid $mainTextColour;
+}
+.columns {
+  -webkit-columns: 2;
+     -moz-columns: 2;
+          columns: 2;
+  -webkit-column-gap: 2 * $containerSpace;
+     -moz-column-gap: 2 * $containerSpace;
+          column-gap: 2 * $containerSpace;
+} 
+.columns p {
+    -webkit-column-break-inside: avoid; /* Chrome, Safari */
+    page-break-inside: avoid;           /* Theoretically FF 20+ */
+    break-inside: avoid-column;         /* IE 11 */
+    display:table;                      /* Actually FF 20+ */
+}
+.column-rule {
+  -webkit-column-rule: 1px solid #ddd;
+     -moz-column-rule: 1px solid #ddd;
+          column-rule: 1px solid #ddd;
+}
+
+
+a, p, h1, h2, h3, h4, li {
+	//margin:0 0 0.3em;
+	font-size:inherit;
+	font-weight:inherit;
+	line-height: inherit;
+}
+@media (min-width: 768px) {
+    a, p, h1, h2, h3, h4, li {
+        //font-size:1.15 * $baseTextSize;
+    }
+}
+@media (min-width: $maxColumn * 1px) { //////// new max column size
+    a, p, h1, h2, h3, h4, li {
+        //font-size: (1.15 * 0.01) * $maxColumn * 1px;
+    }
+}
+
+
+
+.whiteText, .reverse, .reversed, .white-text {
+	color:#ffffff;
+	a, p, h1, h2, h3, h4, li {
+		color:#ffffff;
+	}
+}
+a.whiteText , p.whiteText , h1.whiteText , h2.whiteText , h3.whiteText , h4.whiteText,
+a.reverse , p.reverse , h1.reverse , h2.reverse , h3.reverse , h4.reverse,
+a.white-text , p.white-text , h1.white-text , h2.white-text , h3.white-text , h4.white-text,
+a.reversed , p.reversed , h1.reversed , h2.reversed , h3.reversed , h4.reversed {
+	color:#ffffff;
+}
+
+
+.bold,  strong {
+	font-weight:500;
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;	
+    
+	a, p, h1, h2, h3, h4, li {
+		font-weight:500;
+	}
+}
+a.bold , p.bold , h1.bold , h2.bold , h3.bold , h4.bold  {
+	font-weight:500 ;
+}
+
+.weight100, .weight-100 {
+    font-weight: 100 !important;
+    a, p, h1, h2, h3, h4, li {
+		font-weight: 100 !important;
+	}
+}
+.weight200, .weight-200 {
+    font-weight: 200 !important;
+    a, p, h1, h2, h3, h4, li {
+		font-weight: 200 !important;
+	}
+}
+.weight300, .weight-300{
+    font-weight: 300 !important;
+    a, p, h1, h2, h3, h4, li {
+		font-weight: 300 !important;
+	}
+}
+.weight400, .weight-400{
+    font-weight: 400 !important;
+    a, p, h1, h2, h3, h4, li {
+		font-weight: 400 !important;
+	}
+}
+.weight500, .weight-500{
+    font-weight: 500 !important;
+    a, p, h1, h2, h3, h4, li {
+		font-weight: 500 !important;
+	}
+}
+.weight600, .weight-600{
+    font-weight: 600 !important;
+    a, p, h1, h2, h3, h4, li {
+		font-weight: 600 !important;
+	}
+}
+.weight700, .weight-700{
+    font-weight: 700 !important;
+    a, p, h1, h2, h3, h4, li {
+		font-weight: 700 !important;
+	}
+}
+
+.noMargin, .no-margin {
+    margin:0 !important;
+}
+
+

@@ -1,0 +1,1 @@
+            <div class="col <?php echo $colClasses;?>">

@@ -1,0 +1,9 @@
+.#{$class} { 
+    #{$property}: $value !important;
+	a, p, h1, h2, h3, h4, li {
+		#{$property}: $value !important;
+	}
+}
+a.#{$class} , p.#{$class} , h1.#{$class} , h2.#{$class} , h3.#{$class} , h4.#{$class}  {
+	#{$property}: $value !important;
+}

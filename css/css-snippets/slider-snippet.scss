@@ -1,0 +1,107 @@
+
+
+// Slider ----------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+.slick-dots li button::before {
+	font-size: 13vw;
+	-webkit-transition: color 0.25s ease-in-out, opacity 0.25s ease-in-out;	
+	-moz-transition: color 0.25s ease-in-out, opacity 0.25s ease-in-out;	
+	-o-transition: color 0.25s ease-in-out, opacity 0.25s ease-in-out;	
+	transition: color 0.25s ease-in-out, opacity 0.25s ease-in-out;	
+}
+@media (min-width: 768px) {
+	.slick-dots li button::before {
+		font-size: 2.9vw;
+	}
+}
+
+.slick-dots li button::before {
+	//color:#cccccc;
+	color:#ffffff;
+}
+.slick-dots li.slick-active button::before {
+	color: #ffffff;
+	opacity: 0.75;
+}
+.slick-dots li {
+	height: 0;
+    width: 2vw;
+    padding:0;
+    margin:0;
+    button {
+        padding:0;
+        margin:0;
+    }
+}
+.slick-dots li::before {
+    display:none !important;
+}
+.slick-dots {
+    bottom: -3* $outsideSpace;
+    margin-bottom:0 !important;
+}
+@media (min-width: 768px) {
+	.slick-dots {
+		//bottom: -1 * $outsideSpace;
+       bottom: 0.5 * $outsideSpace;
+        
+	}
+}
+
+
+.hover {
+    display:none;
+    @media (min-width: 768px) {
+        display:block;
+    }
+
+	width: 50%;
+	position: absolute;
+	top: 0;
+	height: 100%;
+	background: none !important;
+    cursor:pointer;
+    .circle {
+        top:50%;
+        transform: translateY(-50%);
+        display:none;
+    }
+    &:hover .circle {
+        display:inline-block;
+    }
+}
+
+.hover.leftHover, .hover.left-hover {
+    left:0;
+    height: calc(100% - 5vw);
+    .circle {
+        left: 2 * $containerSpace;
+    }
+}
+.hover.rightHover, .hover.right-hover {
+	right: 0;
+    text-align: right;
+    .circle {
+        right: 2 * $containerSpace;
+    }
+}
+#sliderCount, #slider-count {
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    padding: 0 2*$outsideSpace 2*$outsideSpace;
+    font-feature-settings: 'tnum';
+    @media (min-width: 768px) {
+        padding: 0 $outsideSpace 1.5vw;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+.slick-slider {
+    margin-bottom: 0;
+}

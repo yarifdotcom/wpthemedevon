@@ -1,0 +1,783 @@
+/*
+Theme Name: 	Devon
+Theme URI: 		inhouse.nz
+Description: 	Devon 2022-06
+Version: 		07a
+Author: 		inhouse.nz
+Author URI: 	inhouse.nz
+Tags: 			inhouse.nz  
+*/
+ 
+@import 'css/variables';    
+
+div,
+article, 
+section,    
+header, 
+footer,  
+nav,
+li					{ position:relative; /* For absolutely positioning elements within containers (add more to the list if need be) */ }
+.group:after 		{ display:block; height:0; clear:both; content:"."; visibility:hidden; /* For clearing */ }
+body 				{ background:#fff; /* Don't forget to style your body to avoid user overrides */ }
+::-moz-selection 	{ background:#999999; color:#333; }
+::selection 		{ background:#999999; color:#333; }
+
+html { font-size: 48%; } 
+ 
+@media (min-width: 768px) {
+html { font-size: 52.5%; } 
+}
+@media (min-width: 992px) {
+	html { font-size: 58.5%; } 
+}
+@media (min-width: 1200px) {
+	html { font-size: 62.5%; } 
+}
+@font-face {
+    font-family: 'avenir';
+    src: url('fonts/avenir-light.woff2') format('woff2');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'avenir';
+    src: url('fonts/avenir-book.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'avenir';
+    src: url('fonts/avenir-medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'canela';
+    src: url('fonts/Canela-ThinItalic.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+}
+
+
+
+body {
+	background-color: #FFFFFF;
+	color:$mainTextColour;
+	margin:0;
+	font-family: "avenir", sans-serif; font-weight:200; font-style:normal;
+	text-align:left;
+	font-size:3.9*$baseTextSize;
+	line-height:1.2em;
+	letter-spacing: 0.02em;
+}
+@media (min-width: 768px) {
+    body {
+        font-size: 1.4*$baseTextSize; 
+    }
+}
+@media (min-width: $maxColumn * 1px) { //>>>>>>>>>>>> new max column size
+    body {
+        font-size: (1.4 * 0.01) * $maxColumn * 1px;
+    }
+}
+
+a {
+	outline: 0 !important;
+}
+a {
+	color: inherit;
+}
+a:link {
+	text-decoration: none;
+	color: inherit;
+}
+a:visited {
+	text-decoration: none;
+	color: inherit;
+}
+a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+a:active {
+	text-decoration: none;
+	color: inherit;
+}
+
+
+
+// Nav + Hamburger + Anim -------------------------------//  
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+$menuSpeed: 0.25s;
+$hamWidth: 45px;
+$hamThick: 2px; // thickness of each hamburger 'bar'
+$hamGap: 8px;
+$hamColour: #000000;
+$hamRolloverColour: #ffffff;
+
+$mainNavBG:red;
+$mainNavColour: #000000;
+
+$navPaddingMob:2* $outsideNumber * 1vw;
+$navPaddingXL: $outsideNumber; // number only
+$navPadding: $navPaddingXL * 1vw;
+
+@import 'css/css-snippets/nav-snippet'; 
+@import 'css/css-snippets/nav-snippet-topbar';  // Uncomment for topbar nav (leave nav-snippet as is)
+
+
+
+//---INFINITE LOAD---------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+
+$infiniteMobileSize: 10vw; // width and height on Mobile
+$infiniteSize: 3vw; // width and height 
+$infiniteTime: 1.0s; // length of animation 
+
+@import 'css/css-snippets/infinite-snippet'; 
+
+
+
+
+// Barba/Transition --------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+
+#transition-mask {
+    //display:none;
+    pointer-events:none;
+
+    background: rgb(154,190,192);
+    background: -webkit-linear-gradient(rgba(154,190,192,1) 0%, rgba(154,190,192,1) 25%, rgba(185,108,92,1) 75%, rgba(185,108,92,1) 100%);
+    background: -o-linear-gradient(rgba(154,190,192,1) 0%, rgba(154,190,192,1) 25%, rgba(185,108,92,1) 75%, rgba(185,108,92,1) 100%);
+    background: linear-gradient(rgba(154,190,192,1) 0%, rgba(154,190,192,1) 25%, rgba(185,108,92,1) 75%, rgba(185,108,92,1) 100%);
+    
+    
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index: -10;
+    //z-index: 10;
+    opacity:0;
+    
+    padding:5vw;
+    
+    overflow:hidden; 
+    //transform:translateY(-40%);
+    
+    display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-justify-content:end;
+	-moz-justify-content: end;
+	-ms-justify-content: end;
+	justify-content: end;
+
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-ms-align-items: center;
+	align-items: center;
+    
+    //flex-direction:column;
+    //align-items:flex-end;
+    flex-wrap: wrap;
+    flex-direction: column;
+    
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-out;	 
+    
+    &.transitioning {
+        z-index: 1100;
+        opacity:1;
+    }
+    .established-logo {
+        width:30.61%;
+        padding-bottom:2.4%;
+    }
+
+}
+
+html.incoming {
+    #content-holder {
+        opacity:0 !important;
+        transform:translateY(5vw);
+    }
+}
+
+#content-holder {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);	;	
+    opacity:1;
+    transform:translateY(0);
+
+}
+
+ 
+
+
+// Logo -------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+.logo-holder {
+    
+    margin-top:1.4vw;
+    margin-bottom:1.4vw;
+    
+    padding: 2 * $outsideSpace;
+    
+    a {
+        width:20vw;	
+        display:block;
+    }
+    
+    @media (min-width: 768px) {
+        margin: 0;
+       
+        position: fixed;
+        padding: $outsideSpace;
+        z-index: 100;
+        a {
+             width: 8vw;
+        }
+    }
+    
+    @media (min-width: $maxColumn * 1px) { //>>>>>>>>>>>> new max column size
+        padding: ($outsideNumber * 0.01) * $maxColumn * 1px;
+        a {
+            width: (8 * 0.01) * $maxColumn * 1px;
+            
+        }
+    }
+}
+
+
+.svg-logo {
+    path, polygon {
+        fill: #000000;
+    }
+}    
+svg {
+    width:100%;
+    height:auto;
+}
+   
+
+
+html.nav-black {
+    .svg-logo {
+        path, polygon {
+            fill: #000 !important;
+        }
+    }    
+    button.navbar-toggle .icon-bar {
+        background: #000 !important;
+    }
+}
+html.nav-white {
+    .svg-logo {
+        path, polygon {
+            fill: #ffffff !important;
+        }
+    }    
+    button.navbar-toggle .icon-bar {
+        background: #fff !important; 
+    }    
+    
+}
+
+
+
+// Structure --------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+
+$topSpace: 4 * $outsideNumber;
+$spaceBelow: 3*$outsideSpace;
+$spaceNumber: 3*$outsideNumber ;
+
+// .flexBottom
+// .flexStretch
+// .flexBottom .toBottom
+
+@import 'css/css-snippets/structure-snippet';  
+
+.lozenge {
+	border: 1px solid #000;
+	border-radius: 2em;
+	padding: 0.35em 0.8em;
+	text-decoration: none !important;
+    &:hover {
+        background:#000; 
+        color:#fff;
+        
+    }
+    &.tight-lozenge {
+        padding: 0.02em 0.8em 0.04em;
+        margin-top: 0.3em;
+        display: inline-block;  
+        border: none;
+    }
+ 
+}
+
+// Spacing ------------------//
+// --------------------------//
+
+// .topSpace 
+// .spaceBelow // .spaceBelowDouble // .spaceBelowHalf // .spaceBelowTriple
+// .marginBelow // .marginBelowDouble // .marginBelowHalf // .marginBelowTriple
+
+//.vert-offset-neg-5 —> .vert-offset-0 —> .vert-offset-5 
+ 
+@import 'css/css-snippets/spacing-snippet'; 
+
+
+
+
+// Colour -----------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+
+$keyColour: #ff40b4; 
+
+// .keyColour 
+// .multiply // .greyscale
+
+@import 'css/css-snippets/colour-snippet'; 
+
+.opacity0 {
+    opacity:0;
+}
+.opacity10 {
+    opacity:0.1;
+}
+.opacity20 {
+    opacity:0.2;
+}
+.opacity30 {
+    opacity:0.3;
+}
+.opacity40 {
+    opacity:0.4;
+}
+.opacity50 {
+    opacity:0.5;
+}
+.opacity60 {
+    opacity:0.6;
+}
+.opacity70 {
+    opacity:0.7;
+}
+.opacity80 {
+    opacity:0.8;
+}
+.opacity90 {
+    opacity:0.9;
+}
+.opacity100 {
+    opacity:1;
+}
+
+// Slider Styles ----------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+@import 'css/css-snippets/slider-snippet'; 
+
+
+
+
+
+
+
+// Type ---- --------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+
+// .uppercase // .centred // .alignRight 
+// .columns // .columnRule
+
+// .whiteText // .reverse 
+// .bold // .weight100 —> .weight700
+
+//.noMargin
+
+// Property -------------//
+$class: tight-kern-10;
+$property: letter-spacing;
+$value: -0.015em; 
+@import 'css/css-snippets/text-value-snippet'; 
+
+// Property -------------//
+$class: tight-kern-20;
+$property:  letter-spacing; 
+$value: 0em;
+@import 'css/css-snippets/text-value-snippet';  
+
+// Property -------------//
+$class: tight-kern-30;
+$property: letter-spacing;
+$value: 0.015em;
+@import 'css/css-snippets/text-value-snippet';  
+
+// Property -------------//
+$class: loose-kern-10;
+$property: letter-spacing;
+$value: 0.04em; 
+@import 'css/css-snippets/text-value-snippet'; 
+
+// Property -------------//
+$class: loose-kern-20;
+$property:  letter-spacing; 
+$value: 0.06em;
+@import 'css/css-snippets/text-value-snippet';  
+
+// Property -------------//
+$class: loose-kern-30;
+$property: letter-spacing;
+$value: 0.08em;
+@import 'css/css-snippets/text-value-snippet';  
+
+// Property -------------//
+$class: tight-lead-10;
+$property: line-height;
+$value: 0.9em; 
+@import 'css/css-snippets/text-value-snippet'; 
+
+// Property -------------//
+$class: tight-lead-20;
+$property:  line-height; 
+$value: 1.0em;
+@import 'css/css-snippets/text-value-snippet';  
+
+// Property -------------//
+$class: tight-lead-30;
+$property: line-height;
+$value: 1.1em;
+@import 'css/css-snippets/text-value-snippet';  
+
+
+// Property -------------//
+$class: loose-lead-10;
+$property: line-height;
+$value: 0.9em; 
+@import 'css/css-snippets/text-value-snippet'; 
+
+// Property -------------//
+$class: loose-lead-20;
+$property:  line-height; 
+$value: 1.0em;
+@import 'css/css-snippets/text-value-snippet';  
+
+// Property -------------//
+$class: loose-lead-30;
+$property: line-height;
+$value: 1.1em;
+@import 'css/css-snippets/text-value-snippet';  
+
+
+
+
+@import 'css/css-snippets/type-snippet'; 
+
+
+
+
+// Text Styles ------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+// To get vw sizes from layout take the point size, and divide it by (document width / 100).
+// eg to find 50pt in a 1600px wide document: 50 / 16 = 3.125vw
+// To find line-height in em, divide the leading by the point size.
+// eg type is 20/24. line-height is 24 / 20 = 1.2em
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+
+//----------------------------------------------------//
+// text10 --------------------------------------------//
+$textName: text10;
+$textMobSize: 15;  // Mobile Size
+$textSize: 5;     // Standard Size
+$lineHeight: 1.2em;
+$marginRatio: 0.5; // percentage of lineHeight for marginBottom
+
+@import 'css/css-snippets/textStyle-snippet'; 
+
+//----------------------------------------------------//
+// text20 --------------------------------------------//
+$textName: text20; 
+$textMobSize: 9;  // Mobile Size
+$textSize: 3.2;     // Standard Size
+$lineHeight: 1.2em;
+$marginRatio: 0.5; // percentage of lineHeight for marginBottom
+
+@import 'css/css-snippets/textStyle-snippet'; 
+
+//----------------------------------------------------//
+// text30 --------------------------------------------//
+$textName: text30;
+$textMobSize: 7.5;  // Mobile Size
+$textSize: 2.5;     // Standard Size
+$lineHeight: 1.2em;
+$marginRatio: 0.5; // percentage of lineHeight for marginBottom
+
+@import 'css/css-snippets/textStyle-snippet'; 
+
+//----------------------------------------------------//
+// text40 --------------------------------------------//
+$textName: text40;
+$textMobSize: 6;  // Mobile Size
+$textSize: 2.1;     // Standard Size
+$lineHeight: 1.2em;
+$marginRatio: 0.5; // percentage of lineHeight for marginBottom
+
+@import 'css/css-snippets/textStyle-snippet'; 
+
+//----------------------------------------------------//
+// text50 --------------------------------------------//
+$textName: text50;
+$textMobSize: 4.5;  // Mobile Size
+$textSize: 1.8;     // Standard Size
+$lineHeight: 1.2em;
+$marginRatio: 0.5; // percentage of lineHeight for marginBottom
+
+@import 'css/css-snippets/textStyle-snippet'; 
+
+//----------------------------------------------------//
+// text60 --------------------------------------------//
+$textName: text60;
+$textMobSize: 3.9;  // Mobile Size
+$textSize: 1.4;     // Standard Size
+$lineHeight: 1.2em;
+$marginRatio: 0.5; // percentage of lineHeight for marginBottom
+
+@import 'css/css-snippets/textStyle-snippet'; 
+
+//----------------------------------------------------//
+// text70 --------------------------------------------//
+$textName: text70;
+$textMobSize: 3;  // Mobile Size
+$textSize: 1;     // Standard Size
+$lineHeight: 1.2em;
+$marginRatio: 0.5; // percentage of lineHeight for marginBottom
+
+@import 'css/css-snippets/textStyle-snippet'; 
+
+
+// Nav -----------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+
+.noScroll, .no-scroll {
+    height:100%;
+    body {
+        overflow:hidden;
+        height:100%;
+    }
+}
+.navbar-toggle {
+    float: right;
+}
+header {
+    z-index:150;
+}
+
+
+.big-nav, .bigNav {
+    transform:translateX(35%);
+    display:block;
+    opacity:0;
+    pointer-events:none;
+}
+
+.menu-active {
+    .big-nav, .bigNav {
+        transform:translateX(0);
+        opacity:1;
+        pointer-events:all;
+
+        -webkit-transition: all $menuSpeed ease-in-out;
+        -moz-transition: all $menuSpeed ease-in-out;
+        -o-transition: all $menuSpeed ease-in-out;
+        transition: all $menuSpeed ease-out;	
+    }
+    header {
+        z-index:1500;  
+    }
+    li {
+        -webkit-transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);	
+        -moz-transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);	
+        -o-transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);	
+        transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);	
+        transform:translateX(0) !important;
+    
+    }
+    &.menu-prep {
+        li {
+         opacity:0;
+            &.current-menu-item {
+                opacity:1;
+                color:#da443c; 
+                
+            }
+        }
+    }
+}
+
+.menu-close {
+    .bigNav, .big-nav {
+        transform:translateX(-35%);
+        opacity:0;
+        -webkit-transition: all $menuSpeed ease-in-out;
+        -moz-transition: all $menuSpeed ease-in-out;
+        -o-transition: all $menuSpeed ease-in-out;
+        transition: all $menuSpeed ease-out;	
+    }
+}
+
+
+// Footer -----------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+
+footer {
+    padding: 2*$outsideSpace 0 3*$outsideSpace;
+    margin-top: 6*$outsideSpace;
+    @media (min-width: 768px) {
+        padding: 2*$outsideSpace 0 1*$outsideSpace;
+    }
+}
+ 
+
+// Video ----------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+// Embed
+.vidHolder, .vid-holder {
+	height: auto;
+	max-width: 100%;
+	overflow: hidden;
+	padding-bottom: 56.25% !important;
+	position: relative;
+    
+    iframe, object, embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom:0;
+    }
+}
+
+
+
+// beautiful-taxonomy-filters----------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+.beautiful-taxonomy-filters {
+    //margin-top: 4.3vw;
+    
+    label {
+        display:none;
+    }
+    .beautiful-taxonomy-filters-tax { 
+        width:50%;
+        //padding-right:2vw;
+        float:left;
+        padding-left: 0.7vw;
+        padding-right: 0.7vw;
+    }
+    .beautiful-taxonomy-filters-select {
+        width:100%;
+    }
+    .beautiful-taxonomy-filters-select-wrap {
+        margin-left: -0.7vw;
+        margin-right: -0.7vw; 
+    }
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        padding-left: 0;
+        padding-right: 0;
+        line-height: 1.1em;
+    }
+    .select2-container--default .select2-selection--single {
+        border-radius: 0;
+        padding: 0.4em 0.5em;
+    }
+    .select2-container .select2-selection--single {
+        height: auto;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        height: 100%;
+        right: 0.4em;
+    }
+    li {
+        margin:0;
+    }
+    button {
+        display:none;
+    }
+}
+
+
+
+// HOME ----------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+
+
+
+
+
+
+
+
+// Media Breaks -----------------------------------------------//
+// 768px
+// 992px
+// 1200px
+//-------------------------------------------------------//
+//-------------------------------------------------------//
+//-------------------------------------------------------//

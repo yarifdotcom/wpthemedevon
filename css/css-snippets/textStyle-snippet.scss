@@ -1,0 +1,91 @@
+.#{$textName} {
+	font-size: $textMobSize * $baseTextSize;
+	line-height: $lineHeight;
+	a, p, h1, h2, h3, h4, li {
+		font-size: $textMobSize * $baseTextSize;
+        line-height: $lineHeight;
+	}
+    p {
+        margin-bottom: $marginRatio*$lineHeight;
+    }
+    @media (min-width: 768px) {
+        font-size:$textSize * $baseTextSize;
+        a, p, h1, h2, h3, h4, li {
+            font-size:$textSize * $baseTextSize;
+        }
+    }
+    @media (min-width: $maxColumn * 1px) { //>>>>>>>>>>>> new max column size
+        font-size: ($textSize * 0.01) * $maxColumn * 1px;
+        a, p, h1, h2, h3, h4, li {
+            font-size: ($textSize * 0.01) * $maxColumn * 1px;
+        }
+    }    
+    
+}
+a.#{$textName} , p.#{$textName} , h1.#{$textName} , h2.#{$textName} , h3.#{$textName} , h4.#{$textName}  {
+	font-size: $textMobSize * $baseTextSize;
+}
+p.#{$textName} {
+    margin-bottom: $marginRatio*$lineHeight;
+}
+@media (min-width: 768px) {
+    a.#{$textName} , p.#{$textName} , h1.#{$textName} , h2.#{$textName} , h3.#{$textName} , h4.#{$textName}  {
+        font-size: $textSize * $baseTextSize;
+    }
+}
+@media (min-width: $maxColumn * 1px) { //>>>>>>>>>>>> new max column size
+    a.#{$textName} , p.#{$textName} , h1.#{$textName} , h2.#{$textName} , h3.#{$textName} , h4.#{$textName}  {
+        font-size: ($textSize * 0.01) * $maxColumn * 1px;
+    }
+}
+
+@media (max-width: 767px) { /*MAXXXXXXXXXXXXXXXXXXX*/
+    .mob-#{$textName} {
+        font-size:$textMobSize * $baseTextSize;
+        a, p, h1, h2, h3, h4, li {
+            font-size:$textMobSize* $baseTextSize;
+        }
+    }
+}
+
+//IMPORTANT
+.#{$textName}-important {
+	font-size: $textMobSize * $baseTextSize !important;
+	line-height: $lineHeight !important;
+	a, p, h1, h2, h3, h4, li {
+		font-size: $textMobSize * $baseTextSize !important;
+        line-height: $lineHeight !important;
+	}
+    p {
+        margin-bottom: $marginRatio*$lineHeight !important;
+    }
+    @media (min-width: 768px) {
+        font-size:$textSize * $baseTextSize !important;
+        a, p, h1, h2, h3, h4, li {
+            font-size:$textSize * $baseTextSize !important;
+        }
+    }
+    @media (min-width: $maxColumn * 1px) { //>>>>>>>>>>>> new max column size
+        font-size: ($textSize * 0.01) * $maxColumn * 1px !important;
+        a, p, h1, h2, h3, h4, li {
+            font-size: ($textSize * 0.01) * $maxColumn * 1px !important;
+        }
+    }    
+    
+}
+a.#{$textName}-important , p.#{$textName}-important , h1.#{$textName}-important , h2.#{$textName}-important , h3.#{$textName}-important , h4.#{$textName}-important  {
+	font-size: $textMobSize * $baseTextSize !important;
+}
+p.#{$textName}-important {
+    margin-bottom: $marginRatio*$lineHeight !important;
+}
+@media (min-width: 768px) {
+    a.#{$textName}-important , p.#{$textName}-important , h1.#{$textName}-important , h2.#{$textName}-important , h3.#{$textName}-important , h4.#{$textName}-important  {
+        font-size: $textSize * $baseTextSize !important;
+    }
+}
+@media (min-width: $maxColumn * 1px) { //>>>>>>>>>>>> new max column size
+    a.#{$textName}-important , p.#{$textName}-important , h1.#{$textName}-important , h2.#{$textName}-important , h3.#{$textName}-important , h4.#{$textName}-important  {
+        font-size: ($textSize * 0.01) * $maxColumn * 1px !important;
+    }
+}

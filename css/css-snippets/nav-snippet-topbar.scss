@@ -1,0 +1,29 @@
+@media (min-width: 768px) {
+    .bigNav, .big-nav {
+        display: block;
+        height: auto; 
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background:transparent;
+        .nav.mainNav, .nav.main-nav {
+            height: auto;
+            text-align: center;
+            display: block;
+            ul {
+                li {
+                    display:inline-block;
+                    margin:0 0.5em;
+                }
+            }
+            a {
+                color: $mainNavColour;
+            }
+        }
+    }
+    button.navbar-toggle {
+        display:none;
+    }
+}
+

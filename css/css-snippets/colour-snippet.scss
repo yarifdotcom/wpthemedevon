@@ -1,0 +1,102 @@
+.keyColour, .key-colour { 
+    color: $keyColour;
+    a, p, h1, h2, h3, h4, li {
+		color: $keyColour;
+	}
+}
+a.keyColour, p.keyColour, h1.keyColour, h2.keyColour, h3.keyColour, h4.keyColour, li.keyColour,
+a.key-colour, p.key-colour, h1.key-colour, h2.key-colour, h3.key-colour, h4.key-colour, li.key-colour {
+    color: $keyColour;
+}
+.multiply {
+	mix-blend-mode: multiply;
+}
+.greyscale {
+    filter: grayscale(1);
+}
+
+.grey05, .grey5, .grey-05, .grey-5  {
+    color: $grey05 !important;
+}
+.grey07, .grey7, .grey-07, .grey-7  {
+    color: $grey07 !important;
+}
+
+.grey10, .grey-10 {
+    color: $grey10 !important;
+}
+.grey20, .grey-20{
+    color: $grey20 !important;
+}
+.grey30,.grey-30 {
+    color: $grey30 !important;
+}
+.grey40, .grey-40{
+    color: $grey40 !important;
+}
+.grey50, .grey-50{
+    color: $grey50 !important;
+}
+.grey60, .grey-60{
+    color: $grey60 !important; 
+}
+.grey70, .grey-70{
+    color: $grey70 !important;
+}
+.grey80,.grey-80 {
+    color: $grey80 !important;
+}
+.grey90, .grey-90{
+    color: $grey90 !important;
+}
+.grey95, .grey-95 {
+    color: $grey95 !important;
+}
+.grey100, .black , .grey-100{
+    color: #000000 !important;
+}
+.white  {
+    color: #ffffff !important;
+}
+.bgGrey05, .bg-grey-05 {
+    background-color: grey05 !important;
+}
+.bgGrey07, .bg-grey-07 {
+    background-color: grey07 !important;
+}
+.bgGrey10, .bg-grey-10 {
+    background-color: grey10 !important;
+}
+.bgGrey20, .bg-grey-20  {
+    background-color: grey20 !important;
+}
+.bgGrey30, .bg-grey-30  {
+    background-color: grey30 !important;
+}
+.bgGrey40, .bg-gGrey-40  {
+    background-color: grey40 !important;
+}
+.bgGrey50, .bg-grey-50  {
+    background-color: grey50 !important;
+}
+.bgGrey60, .bg-grey-60  {
+    background-color: grey60 !important; 
+}
+.bgGrey70, .bg-grey-70  {
+    background-color: grey70 !important;
+}
+.bgGrey80, .bg-grey-80  {
+    background-color: grey80 !important;
+}
+.bgGrey90, .bg-grey-90  {
+    background-color: grey90 !important;
+}
+.bgGrey95, .bg-grey-95  {
+    background-color: grey95 !important;
+}
+.bgGrey100, .bgBlack, .bg-grey-100, .bg-black {
+    background-color: #000000;
+}
+.bgWhite, .bg-white {
+    background-color: #ffffff;
+}

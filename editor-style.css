@@ -1,0 +1,10 @@
+/*
+Try removing and adding the 'formats' panel in tinymce-advanced, maybe clear cache, maybe first check tinymce config has the option ticked first
+
+Possibly turn off tickbox in tinymce-advanced, refresh edit page, then add it back in tinymce-advanced
+
+*/
+
+p, h1, h2, h3, h4 {
+		font-family:arial;
+}
