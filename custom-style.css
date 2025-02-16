@@ -36,16 +36,24 @@
 
 /* Style untuk tombol Add to Cart */
 #content-holder.single-product form.cart .single_add_to_cart_button {
-    flex: 1;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-weight: 600 !important;
-    color: #fff !important;
-    background-color: #654321 !important;
-    border: none;
-    border-radius: 8px;
+    /* flex: 1; */
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 300 !important;
+    background-color: transparent !important;
+    color: #000 !important;
+    text-transform: uppercase;
+    vertical-align: text-top;
+    border: 1px solid #000;
+    border-radius: 2em;
+    padding: 1.3em 3em;
+    text-decoration: none !important;
+    font-size: 0.95vw;
+}
+
+#content-holder.single-product form.cart .single_add_to_cart_button:hover {
+    background-color: #6b5a4a !important; /* Warna coklat kayu lebih gelap */
+    color: #fff !important;
 }
 
 #content-holder.single-product form.cart .single_add_to_cart_button:hover {
@@ -197,7 +205,7 @@
 /* Gaya untuk bagian kupon dan tombol */
 .shop_table .actions {
     padding: 15px;
-    background-color: #e0d7cf; /* Warna coklat kayu muda */
+    /* background-color: #e0d7cf;  */
     border-top: 2px solid #d3c1b0; /* Warna coklat kayu muda lebih gelap */
 }
 
@@ -230,20 +238,23 @@
 }
 
 .shop_table .actions button.button {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 4px;
+    background-color: transparent !important;
+    color: #000 !important;
+    text-transform: uppercase;
+    vertical-align: text-top;
+    border: 1px solid #d3c1b0;
+    border-radius: 5px;
     cursor: pointer;
-    background-color: #c5bab0 !important;
+    text-decoration: none !important;
+    font-size: 0.95vw;
 }
 
-.shop_table .actions button.button[name="update_cart"]:hover {
-    background-color: #8b7355 !important;/* Warna coklat kayu lebih gelap */
+.shop_table .actions button.button:hover {
+    background-color: #6b5a4a !important; /* Warna coklat kayu lebih gelap */
+    color: #fff !important;
 }
 
 .shop_table .actions button.button[name="update_cart"] {
-    background-color: #cbad88 !important; /* Warna coklat muda tua */
-    color: #fff !important; /* Teks putih untuk kontras */
     margin-top: 30px;
     width: 100%;
     margin-bottom: 15px;
@@ -289,11 +300,21 @@
     }
 
     .woocommerce .cart-collaterals .wc-proceed-to-checkout a {
-        background-color: #8b7355 !important;
+        /* background-color: #8b7355 !important; */
+        background-color: transparent !important;
+        color: #000 !important;
+        text-transform: uppercase;
+        vertical-align: text-top;
+        border: 1px solid #000;
+        border-radius: 2em;
+        padding: 1.3em 3em;
+        text-decoration: none !important;
+        font-size: 0.95vw;
     }
 
     .woocommerce .cart-collaterals .wc-proceed-to-checkout a:hover {
-        background-color: #6b5a4a !important;
+        background-color: #6b5a4a !important; /* Warna coklat kayu lebih gelap */
+        color: #fff !important;
     }
 }
 
@@ -369,9 +390,13 @@ form[name="checkout"].woocommerce-checkout button.button:hover {
 @media (min-width: 768px) {
     .woocommerce-checkout h3#order_review_heading ,
     .woocommerce-checkout #order_review {
-        width: 50%;
+        /* width: 50%;
         margin: 0 auto;
-        margin-top: 2em;
+        margin-top: 2em; */
+    }
+
+    .woocommerce-checkout #order_review {
+        width: 100%;
     }
 }
 
@@ -421,19 +446,24 @@ form[name="checkout"].woocommerce-checkout button.button:hover {
 
 /* Gaya untuk tombol "Place Order" */
 #payment .place-order button.button {
-    width: 100%;
-    background-color: #8b7355 !important; /* Warna coklat kayu tua */
-    color: #fff !important;
-    padding: 15px;
-    font-size: 18px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    background-color: transparent !important;
+    color: #000 !important;
+    text-transform: uppercase;
+    vertical-align: text-top;
+    border: 1px solid #000;
+    border-radius: 2em;
+    padding: 1.3em 3em;
+    text-decoration: none !important;
+    font-size: 0.95vw;
+}
+
+.woocommerce-checkout #order_review #payment .form-row {
+    text-align: right;
 }
 
 #payment .place-order button.button:hover {
     background-color: #6b5a4a !important; /* Warna coklat kayu lebih gelap */
+    color: #fff !important;
 }
 
 @media (min-width: 768px) {
