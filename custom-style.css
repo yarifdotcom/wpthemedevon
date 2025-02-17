@@ -138,23 +138,24 @@
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    background-color: #f5f3f1; /* Warna latar belakang lembut */
+    /* background-color: #f5f3f1;  */
     border-radius: 8px;
     overflow: hidden;
 }
 
 /* Gaya untuk header tabel */
 .shop_table.cart thead th {
-    background-color: #8b7355; /* Warna coklat kayu tua */
+    background-color:  #d3d3d3;
+     /* #8b7355;  */
     padding: 15px;
     text-align: left;
-    font-weight: bold;
-    color: #fff; /* Teks putih untuk kontras */
+    font-weight: 300;
+    /* color: #fff;  */
     border-bottom: 2px solid #6b5a4a; /* Warna coklat kayu lebih gelap */
 }
 
 .shop_table.cart thead th.product-price, .shop_table thead th.product-subtotal{
-    color :  #fff; /* Teks putih untuk kontras */
+    color :  #000; 
 }
 
 /* Gaya untuk sel dalam tabel */
@@ -220,7 +221,7 @@
     border: 1px solid #d3c1b0; /* Warna coklat kayu muda */
     border-radius: 4px;
     flex: 1;
-    background-color: #f5f3f1; /* Warna latar belakang lembut */
+    /* background-color: #f5f3f1;  */
     color: #5a4a42; /* Warna teks coklat tua */
 }
 
