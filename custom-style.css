@@ -292,7 +292,7 @@
 }
 
 .shop_table .order-total td span {
-    font-size: 19px;
+    font-size: 1.3vw;
 }
 
 @media (min-width: 768px) {
@@ -522,3 +522,35 @@ form[name="checkout"].woocommerce-checkout button.button:hover {
 .woocommerce-cart .woocommerce-notices-wrapper {
     display: none !important;
 }
+
+/* Variance */
+
+#content-holder.single-product .variations_form div {
+    width: 100%;
+}
+
+#content-holder.single-product .variations_form tr {
+    margin-bottom: 1em;
+}
+
+#content-holder.single-product .single_variation_wrap {
+    display: block !important;
+}
+
+#content-holder.single-product .single_variation_wrap .woocommerce-variation-add-to-cart {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Option only to avoid where variation is not listed well */
+#content-holder.single-product .single_variation_wrap .woocommerce-variation-add-to-cart.woocommerce-variation-add-to-cart-disabled {
+   display: none;
+}
+
+.woocommerce-error {
+    font-size: 1vw;
+}
+
