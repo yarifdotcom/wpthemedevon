@@ -42,7 +42,8 @@
                 <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
             
                 <article class="col col-sm-3 text60 uppercase p-b-1-col mob-p-b-3-em">
-                    <a href="<?php echo get_the_permalink(); ?>" class="product-link">
+
+                    <a href="<?php echo get_the_permalink() ?>" class="product-link">
 
                         <?php $image_id = get_post_thumbnail_id();?>
                         <?php 
@@ -76,10 +77,9 @@
                     if ( $product ) {
                         if ( $product->get_price_html() ) {
                             if ($product->is_type( 'variable' )) {
+                                $product_url = get_permalink( $product->get_id() );
                     ?>
-                            
-                             <a href="<?php echo get_permalink(); ?>" class="button product-act-select" 
-                              >Select Options</a>
+                        <a href="<?php echo get_the_permalink() ?>" class="product-link button product-act-select">Select Options</a>                             
                     <?php
                             } else {
                                 ?>

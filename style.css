@@ -3734,7 +3734,8 @@ input[type="search"] {
 #content-holder.single-product section.category span:nth-last-of-type(1) {
   display: none; }
 #content-holder.single-product form.cart .quantity, #content-holder.single-product form.cart .reset_variations, #content-holder.single-product form.cart button.single_add_to_cart_button {
-  display: none !important; }
+  /* display: none !important;  */
+}
 @media (min-width: 768px) {
   #content-holder.single-product section.collection .col {
     border-left: 1px solid #000; } }

@@ -883,6 +883,19 @@ function custom_return_to_shop_url() {
 add_filter( 'woocommerce_get_shop_page_permalink', 'custom_return_to_shop_url' );
 
 
+function custom_remove_variation_wrap() {
+    remove_action('woocommerce_single_variation', 'woocommerce_single_variation', 10);
+}
+add_action('wp', 'custom_remove_variation_wrap');
+
+function custom_variation_script() {
+    if (is_product()) { // Hanya load script di halaman produk tunggal
+        wp_enqueue_script('custom-variation-js', get_stylesheet_directory_uri() . '/scripts/custom.js', array('jquery'), null, true);
+    }
+}
+add_action('wp_enqueue_scripts', 'custom_variation_script');
+
+
 
 
 

@@ -1,5 +1,8 @@
-#content-holder.single-product form.cart .quantity, #content-holder.single-product form.cart .reset_variations, #content-holder.single-product form.cart button.single_add_to_cart_button {
-    display: inherit !important; }
+#content-holder.single-product form.cart .quantity, 
+/* #content-holder.single-product form.cart .reset_variations,  */
+#content-holder.single-product form.cart button.single_add_to_cart_button {
+    display: inherit !important;
+ }
 
 
 /* Style untuk form cart */
@@ -46,9 +49,11 @@
     vertical-align: text-top;
     border: 1px solid #000;
     border-radius: 2em;
-    padding: 1.3em 3em;
+    /* padding: 1.3em 3em; */
+    padding: 1em 3em;
     text-decoration: none !important;
-    font-size: 0.95vw;
+    /* font-size: 0.95vw; */
+    font-size: 0.84vw;
 }
 
 #content-holder.single-product form.cart .single_add_to_cart_button:hover {
@@ -534,7 +539,10 @@ form[name="checkout"].woocommerce-checkout button.button:hover {
 }
 
 #content-holder.single-product .single_variation_wrap {
-    display: block !important;
+    /* display: block !important; */
+    display: flex !important;
+    align-items: center;
+    gap: 15px;
 }
 
 #content-holder.single-product .single_variation_wrap .woocommerce-variation-add-to-cart {
@@ -554,3 +562,8 @@ form[name="checkout"].woocommerce-checkout button.button:hover {
     font-size: 1vw;
 }
 
+#content-holder.single-product form.cart button.single_add_to_cart_button:disabled {
+    background-color: #ccc; /* Warna latar belakang saat tombol dinonaktifkan */
+    cursor: not-allowed; /* Ubah kursor saat tombol dinonaktifkan */
+    opacity: 0.7; /* Kurangi opacity saat tombol dinonaktifkan */
+}
