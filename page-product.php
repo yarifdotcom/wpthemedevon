@@ -69,7 +69,7 @@
                     </a>
                     
                     <div class="wrap-price" style="margin-bottom: 10px !important;">
-                        <span class="price"><?php echo $product->get_price_html(); ?></span>    
+                        <!-- <span class="price"><php echo $product->get_price_html(); ?></span>     -->
                     </div>
 
                     <?php
@@ -86,6 +86,7 @@
                             
                             <form class="cart" method="post" enctype="multipart/form-data">
                             <button type="submit" class="button alt product-act-add"
+                            
                             >Add to Cart</button>
                             <input type="hidden" name="add-to-cart" value="<?php echo get_the_ID(); ?>" />
                             </form>

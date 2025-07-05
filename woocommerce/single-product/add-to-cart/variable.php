@@ -49,7 +49,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">
+						<td>
 							<?php
 							/**
 							 * Filters the reset variation button.
@@ -58,7 +58,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 							 *
 							 * @param string  $button The reset variation button HTML.
 							 */
-							// echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<button class="reset_variations"  aria-label="' . esc_html__( 'Clear options', 'woocommerce' ) . '">' . esc_html__( 'Clear', 'woocommerce' ) . '</button>' ) ) : '';
+							echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations"  aria-label="' . esc_html__( 'Clear options', 'woocommerce' ) . '">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) ) : '';
 							?>
 						</td>
 					</tr>
@@ -70,8 +70,6 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
 		<div class="single_variation_wrap">
 			<?php
-
-				echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<button class="reset_variations"  aria-label="' . esc_html__( 'Clear options', 'woocommerce' ) . '">' . esc_html__( 'Clear', 'woocommerce' ) . '</button>' ) ) : '';
 				/**
 				 * Hook: woocommerce_before_single_variation.
 				 */

@@ -208,11 +208,13 @@
 		wp_register_script('scrolltrigger', get_template_directory_uri() . '/scripts/ScrollTrigger.min.js', array('jquery'),'1.12', true);
         wp_register_script('site_scripts', get_template_directory_uri() . '/scripts/site.js', array('jquery', 'gsap'),'1.167', true); 
 
+        wp_enqueue_script( 'wp-i18n' );
 		wp_enqueue_script('barba');
 		wp_enqueue_script('slick');
 		wp_enqueue_script('gsap');
         wp_enqueue_script('scrolltrigger');
         wp_enqueue_script('site_scripts');
+        
 	}
 	add_action( 'wp_enqueue_scripts', 'starter_scripts' );
 
@@ -224,23 +226,44 @@ add_filter('acf/settings/remove_wp_meta_box', '__return_true');
 ////////////////////////////////////////
 //Change number of posts in query///////
 
-add_action('pre_get_posts', 'change_tax_num_of_posts' );
+// add_action('pre_get_posts', 'change_tax_num_of_posts' );
 
-function change_tax_num_of_posts( $wp_query ) {  
-	if( !is_admin() && $wp_query->is_main_query() && in_array ( $wp_query->get('post_type'), array('product') ) ){
-		$wp_query->set( 'posts_per_page', -1 );
+// function change_tax_num_of_posts( $wp_query ) {  
+// 	if( !is_admin() && $wp_query->is_main_query() && in_array ( $wp_query->get('post_type'), array('product') ) ){
+// 		$wp_query->set( 'posts_per_page', -1 );
+//         $wp_query->set( 'orderby', 'date' );
+//         $wp_query->set( 'order', 'DESC' );
+// 	}
+    
+//  	if( !is_admin() && $wp_query->is_main_query() && $wp_query->is_search ){
+// 		$wp_query->set('posts_per_page', -1);
+
+// 	}   
+    
+    
+    
+// }
+
+function change_tax_num_of_posts( $wp_query ) {
+    if ( is_admin() || ! $wp_query->is_main_query() ) {
+        return;
+    }
+
+    // Jika ini arsip produk atau taksonomi produk (misal kategori atau tag produk)
+    if ( ( $wp_query->is_post_type_archive('product') || $wp_query->is_tax() ) && ! $wp_query->is_search() ) {
+        $wp_query->set( 'posts_per_page', -1 );
         $wp_query->set( 'orderby', 'date' );
         $wp_query->set( 'order', 'DESC' );
-	}
-    
- 	if( !is_admin() && $wp_query->is_main_query() && $wp_query->is_search ){
-		$wp_query->set('posts_per_page', -1);
+    }
 
-	}   
-    
-    
-    
+    // Jika ini halaman pencarian (untuk semua post type, termasuk produk)
+    if ( $wp_query->is_search() ) {
+        $wp_query->set( 'posts_per_page', 10 );
+        $wp_query->set( 'orderby', 'relevance' );
+        $wp_query->set( 'order', 'DESC' );
+    }
 }
+add_action( 'pre_get_posts', 'change_tax_num_of_posts' );
 
 //stop trash deleting
 function wpb_remove_schedule_delete() {
@@ -771,11 +794,13 @@ function after_image() {
 
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 ); 
+// hidden price in single product
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+
 remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
 remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
 
-add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 5 ); 
+// add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 5 ); 
 // add_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 55 ); //???
 
 
@@ -883,21 +908,274 @@ function custom_return_to_shop_url() {
 add_filter( 'woocommerce_get_shop_page_permalink', 'custom_return_to_shop_url' );
 
 
-function custom_remove_variation_wrap() {
-    remove_action('woocommerce_single_variation', 'woocommerce_single_variation', 10);
-}
-add_action('wp', 'custom_remove_variation_wrap');
+// function custom_remove_variation_wrap() {
+//     remove_action('woocommerce_single_variation', 'woocommerce_single_variation', 10);
+// }
+// add_action('wp', 'custom_remove_variation_wrap');
 
 function custom_variation_script() {
     if (is_product()) { // Hanya load script di halaman produk tunggal
-        wp_enqueue_script('custom-variation-js', get_stylesheet_directory_uri() . '/scripts/custom.js', array('jquery'), null, true);
+        global $product;
+
+        // Pastikan jQuery tersedia
+        wp_enqueue_script('jquery');
+
+        // File umum untuk semua produk tunggal
+        wp_enqueue_script(
+            'custom-common-js',
+            get_stylesheet_directory_uri() . '/scripts/custom-common.js',
+            array('jquery'),
+            null,
+            true
+        );
+
+        // Khusus untuk produk variation
+        if ($product && $product->is_type('variable')) {
+            wp_enqueue_script(
+                'custom-variation-js',
+                get_stylesheet_directory_uri() . '/scripts/custom-variation.js',
+                array('jquery'),
+                null,
+                true
+            );
+        }
+
+        // Khusus untuk produk simple
+        if ($product && $product->is_type('simple')) {
+            wp_enqueue_script(
+                'custom-simple-js',
+                get_stylesheet_directory_uri() . '/scripts/custom-simple.js',
+                array('jquery'),
+                null,
+                true
+            );
+        }
+    }
+
+    if (is_checkout()) {
+        wp_enqueue_script(
+            'custom-checkout-js',
+            get_stylesheet_directory_uri() . '/scripts/custom-checkout.js',
+            array('jquery'), // dependencies
+            '1.0',
+            true // load in footer
+        );
     }
 }
 add_action('wp_enqueue_scripts', 'custom_variation_script');
 
+// function always show price althought same price in varian
+add_filter('woocommerce_show_variation_price', function() {
+    return true;
+}, 10, 3);
 
 
 
+// MINI CHART START
+
+// Ajax handler untuk update quantity
+add_action('wp_ajax_update_mini_cart_item', 'update_mini_cart_item');
+add_action('wp_ajax_nopriv_update_mini_cart_item', 'update_mini_cart_item');
+
+function update_mini_cart_item() {
+    if (!isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'], 'update_qty_nonce')) {
+        wp_send_json_error([
+            'message' => 'Session expired. Redirecting...',
+            'redirect_url' => wc_get_cart_url()
+        ]);
+        return;
+    }
+
+    $cart_item_key = sanitize_text_field($_POST['cart_item_key']);
+    $quantity = max(1, intval($_POST['quantity']));
+
+    if (WC()->cart->set_quantity($cart_item_key, $quantity, true)) {
+        WC()->cart->calculate_totals();
+
+        // Refresh mini cart
+        ob_start();
+        woocommerce_mini_cart();
+        $mini_cart = ob_get_clean();
+
+        $fragments = [];
+        $fragments['.widget_shopping_cart_content'] = $mini_cart;
+        $fragments['.mini-cart-subtotal'] = '<span class="mini-cart-subtotal">' . WC()->cart->get_cart_subtotal() . '</span>';
+
+        wp_send_json_success(['fragments' => $fragments]);
+    } else {
+        wp_send_json_error(['message' => 'Failed to update quantity.']);
+    }
+}
 
 
+
+function enqueue_custom_mini_cart_script() {
+    wp_enqueue_script('custom-mini-cart', get_template_directory_uri() . '/scripts/custom-mini-cart.js', ['jquery'], null, true);
+
+    wp_localize_script('custom-mini-cart', 'wc_add_to_cart_params', [
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'update_qty_nonce' => wp_create_nonce('update_qty_nonce'),
+        'wc_ajax_url' => WC_AJAX::get_endpoint("%%endpoint%%"),
+    ]);
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_mini_cart_script');
+
+// remove mini cart
+
+add_action('wp_ajax_remove_mini_cart_item', 'custom_remove_mini_cart_item');
+add_action('wp_ajax_nopriv_remove_mini_cart_item', 'custom_remove_mini_cart_item');
+
+function custom_remove_mini_cart_item() {
+    if (!isset($_POST['cart_item_key']) || !isset($_POST['_wpnonce']) || !wp_verify_nonce($_POST['_wpnonce'], 'update_qty_nonce')) {
+        wp_send_json_error(['message' => 'Nonce tidak valid.']);
+    }
+
+    $cart_item_key = sanitize_text_field($_POST['cart_item_key']);
+
+    if (WC()->cart->remove_cart_item($cart_item_key)) {
+        WC()->cart->calculate_totals();
+
+        ob_start();
+        woocommerce_mini_cart();
+        $mini_cart = ob_get_clean();
+
+        wp_send_json_success([
+            'fragments' => [
+                '.widget_shopping_cart_content' => $mini_cart,
+            ]
+        ]);
+    } else {
+        wp_send_json_error(['message' => 'Failed to update quantity.']);
+    }
+
+    wp_die();
+}
+
+
+add_filter('woocommerce_add_to_cart_fragments', 'update_cart_badge_fragment');
+function update_cart_badge_fragment($fragments) {
+    ob_start(); ?>
+    <span class="cart-badge"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+    <?php
+    $fragments['.cart-badge'] = ob_get_clean();
+    return $fragments;
+}
+
+remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+
+
+add_action( 'woocommerce_checkout_process', 'sync_custom_email_to_billing_email' );
+function sync_custom_email_to_billing_email() {
+     // Hanya jalankan jika user belum login
+     if ( ! is_user_logged_in() ) {
+        if ( isset($_POST['email']) && is_email($_POST['email']) ) {
+            $_POST['billing_email'] = sanitize_email( $_POST['email'] );
+        } else {
+            wc_add_notice( __( 'Please enter a valid email address.', 'woocommerce' ), 'error' );
+        }
+
+        // Validasi password wajib diisi kalau user belum login
+        if ( empty($_POST['account_password']) ) {
+            wc_add_notice( __( 'Please enter a password to create your account.', 'woocommerce' ), 'error' );
+        }
+    }
+}
+
+add_filter( 'woocommerce_checkout_fields', 'make_billing_email_hidden_and_not_required' );
+function make_billing_email_hidden_and_not_required( $fields ) {
+    $fields['billing']['billing_email']['required'] = false;
+    $fields['billing']['billing_email']['type'] = 'text';
+    $fields['billing']['billing_email']['validate'] = array(); // Hapus validasi email
+    $fields['billing']['billing_email']['class'][] = 'hidden'; // Tambahkan class untuk sembunyi
+    return $fields;
+}
+
+add_action( 'woocommerce_checkout_after_customer_details', 'sync_email_js_to_billing_email' );
+function sync_email_js_to_billing_email() {
+    ?>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const customEmail = document.querySelector('#reg_email');
+        const billingEmail = document.querySelector('#billing_email');
+        const checkoutPasswordField = document.querySelector('#account_password'); // password field di form custom
+        const accountPasswordField = document.querySelector('div.woocommerce-account-fields #account_password'); // password default WooCommerce
+
+        // Sinkron email
+        function syncEmail() {
+            if (customEmail && billingEmail) {
+                billingEmail.value = customEmail.value;
+            }
+        }
+
+        if (customEmail && billingEmail) {
+            customEmail.addEventListener('input', syncEmail);
+            customEmail.addEventListener('change', syncEmail);
+
+            const form = document.querySelector('form.checkout');
+            if (form) {
+                form.addEventListener('submit', syncEmail);
+            }
+        }
+
+        // Sync password ke form Woo default (kalau aktif)
+        if (checkoutPasswordField && accountPasswordField) {
+            checkoutPasswordField.addEventListener('input', function () {
+                accountPasswordField.value = checkoutPasswordField.value;
+            });
+        }
+    });
+    </script>
+    <?php
+}
+
+
+add_action( 'woocommerce_checkout_create_customer', 'sync_password_checkout_and_account', 20, 2 );
+function sync_password_checkout_and_account( $customer, $data ) {
+    if ( isset( $_POST['account_password'] ) ) {
+        $password = sanitize_text_field( $_POST['account_password'] );
+
+        if ( ! empty( $password ) ) {
+            $customer->set_password( $password );
+        }
+    }
+}
+
+// Hapus navigasi default WooCommerce
+remove_action( 'woocommerce_account_navigation', 'woocommerce_account_navigation', 10 );
+
+add_action('woocommerce_account_navigation', 'custom_woocommerce_account_navigation', 10);
+function custom_woocommerce_account_navigation() {
+    ?>
+    <ul class="woocommerce-account-navigation">
+        <li><a href="<?php echo esc_url( wc_get_account_endpoint_url( 'dashboard' ) ); ?>">Dashboard</a></li>
+        <li><a href="<?php echo esc_url( wc_get_account_endpoint_url( 'orders' ) ); ?>">Orders</a></li>
+        <li><a href="<?php echo esc_url( wc_get_account_endpoint_url( 'edit-account' ) ); ?>">Account details</a></li>
+        <li><a href="<?php echo esc_url( wc_get_account_endpoint_url( 'edit-address' ) ); ?>">Addresses</a></li>
+        <li><a href="<?php echo esc_url( wp_logout_url( wc_get_page_permalink( 'myaccount' ) ) ); ?>">Logout</a></li>
+    </ul>
+    <?php
+}
+
+
+add_filter( 'woocommerce_registration_redirect', 'custom_registration_redirect' );
+function custom_registration_redirect( $redirect ) {
+    return wc_get_page_permalink( 'myaccount' ); // Redirect ke halaman My Account
+}
+
+
+// Limit available countries to only New Zealand
+// add_filter('woocommerce_countries_allowed_countries', 'only_allow_new_zealand_checkout');
+// function only_allow_new_zealand_checkout($countries) {
+//     return array(
+//         'NZ' => $countries['NZ']
+//     );
+// }
+
+add_action('woocommerce_review_order_after_shipping', 'add_free_shipping_note_below_shipping');
+
+function add_free_shipping_note_below_shipping() {
+    echo '<tr class="shipping-note">        
+           <td>Enjoy Free Shipping New Zealand Wide! <br> International Shipping Quotes Available on Request.</td> 
+    </tr>';
+}
 

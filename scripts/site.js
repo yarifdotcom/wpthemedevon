@@ -186,6 +186,18 @@ $('document').ready(function(){
             return false;
         }
 
+        // ignore cart and checkout pages and register to void js check password streng bug
+        if (element.href.includes('/cart') || element.href.includes('/checkout') || element.href.includes('/register')) {
+            return false;
+        }
+
+        // force reload if current page is /cart or /checkout
+        const currentPath = window.location.pathname;
+        if (currentPath.includes('/checkout') || currentPath.includes('/cart')) {
+            window.location.href = element.href;
+            return false;
+        }
+
         // additional (besides .no-barba) ignore links with these classes
         // ab-item is for wp admin toolbar links
         var ignoreClasses = ['product-link', 'no-barba', 'input[type="submit"]'];
@@ -197,8 +209,6 @@ $('document').ready(function(){
 
         return true;
     };  
-    
-    
     
     Barba.Dispatcher.on('newPageReady', function(current, prev, container) { // return page scroll to top
         history.scrollRestoration = 'manual';

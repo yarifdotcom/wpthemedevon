@@ -85,42 +85,33 @@ $taxCount = $taxonomy->count
                     </a>
 
                     <div class="wrap-price" style="margin-bottom: 10px !important;">
-                        <span class="price"><?php echo $product->get_price_html(); ?></span>    
+                        <!-- <span class="price"><php echo $product->get_price_html(); ?></span>     -->
                     </div>
 
                     <?php
                     global $product; // Ensure you have access to the product object
                     if ( $product ) {
                         if ( $product->get_price_html() ) {
+                            if ($product->is_type( 'variable' )) {
+                                $product_url = get_permalink( $product->get_id() );
                     ?>
+                        <a href="<?php echo get_the_permalink() ?>" class="product-link button product-act-select">Select Options</a>                             
+                    <?php
+                            } else {
+                                ?>
                             
                             <form class="cart" method="post" enctype="multipart/form-data">
-                            <button type="submit" class="button alt"
-                                    style="font-weight: 300 !important;background-color: transparent !important;
-                                           color: #000 !important;
-                                           text-transform: uppercase;
-                                           vertical-align: text-top;
-                                           border: 1px solid #000;
-                                           border-radius: 2em;
-                                           padding: 1.3em 3em;
-                                           text-decoration: none !important;"
+                            <button type="submit" class="button alt product-act-add"
                             >Add to Cart</button>
                             <input type="hidden" name="add-to-cart" value="<?php echo get_the_ID(); ?>" />
                             </form>
-                    <?php    
-                        } else {
-                    ?>
-
-                            <!-- <a href="< ?php echo get_permalink(); ?>" class="button" >
-                               style="font-weight: 300 !important;background-color: transparent !important;
-                                           color: #000 !important;
-                                           text-transform: uppercase;
-                                           vertical-align: text-top;
-                                           border: 1px solid #000;
-                                           border-radius: 2em;
-                                           padding: 1.3em 3em;
-                                           text-decoration: none !important;">Read More</a -->
                     <?php
+
+                            }   
+                        
+                    ?>
+                    <?php
+                        
                         }
                     }
                     ?>

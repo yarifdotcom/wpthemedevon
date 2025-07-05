@@ -107,7 +107,7 @@
             
              <nav class="navigation col col-sm-6  ">
 
-                <p class="text60"><?php// posts_nav_link(); ?>
+                <p class="text60">
 
                 <?php    
                 if ( get_previous_posts_link() ){

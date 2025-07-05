@@ -1,6 +1,6 @@
 <?php 
 /*
-Template Name: Cart Custom
+Template Name: Account Custom
 */
 ?>
 
@@ -13,7 +13,7 @@ Template Name: Cart Custom
 
 ?>
 
-     <section class="title-section ">
+     <section class="title-section">
         <div class="container-fluid no-max">
             <div class="row justify-content-center text-center">
                 <div class="col col-sm-12 text20 serif text-center pt-25em pb-15em fs-13vw pb-mobile-3">
@@ -25,22 +25,14 @@ Template Name: Cart Custom
 
     <section class="content-section mob-spaceBelowDouble mob-p-b-2">
         <div class="container-fluid ">
-            <div class="d-flex justify-content-center">
-                <div class="row">
-                                
-                        <div class="col col-sm-12 text40 " >
-                            <?php echo get_field( 'text' ); ?>
-                            <?php the_content( ); ?>
-                            
-                            
-                            
-                        </div><!-- /col -->
-    
-    
+            <div class="row d-flex justify-content-center">    
+                <div class="col col-sm-12 text40 wc-my-account" >
+                    <?php echo get_field( 'text' ); ?>
+                    <?php the_content( ); ?>
                     
                     
                     
-                </div><!-- /row -->
+                </div><!-- /col -->
             </div>
             
         </div><!-- /container -->

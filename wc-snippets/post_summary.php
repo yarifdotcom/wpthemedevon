@@ -8,6 +8,32 @@
 
             <div class="details text50">
 
+                <!-- GAMBAR SPEK --> 
+                <?php if (get_field('technical_drawing')){?>
+            
+                    <div class="p-t-0-half p-b-1-col">
+                        <?php 
+                        //Image/////////////////////////////////////////  
+                        $image_id= ''; // use ID of image instead of ACF 
+                        $imageField = 'technical_drawing'; // slug of image field
+                        $isSub = false; // set to true fo get_sub_field() instead of get_field() //
+                        $imageSize = 'xl'; //  //
+                        $sizes = '(min-width: 768px) 33vw, 100vw'; // src-set sizes //
+                        $sizesPortrait = '(min-width: 768px) 33vw, 100vw'; // src-set sizes //
+                        $forceRatio = ''; // force image to specific ratio // 
+                        $outerClasses = ''; // 'imgOuter' additional classes
+                        $holderClasses = 'img-cover '; // 'imgHolder imgSpaced' additional classes
+                        $imgClasses = ''; // 'img' additional classes
+                        $imgSpaced = true; // add padding, and img is position:aboslute to prevent layout shift
+                        $dataOnly = false; // add src-set fields to data-src-set for js usage
+                        $loading = 'lazy'; // lazy or eager
+                        include( locate_template( 'snippets/image.php', false, false ) ); 
+                        ?>  
+                    </div>
+
+                <?php } ?>
+                    
+
                 <?php if ( have_rows( 'details' ) ) : ?>
                     <?php while ( have_rows( 'details' ) ) : the_row(); ?>
                 
@@ -76,32 +102,7 @@
                     <?php endif; ?>    
                 
                 <?php }  ?>
-                
-                <?php if (get_field('technical_drawing')){?>
-                
-                    <div class="p-t-0-half p-b-1-col">
-                        <?php 
-                        //Image/////////////////////////////////////////  
-                        $image_id= ''; // use ID of image instead of ACF 
-                        $imageField = 'technical_drawing'; // slug of image field
-                        $isSub = false; // set to true fo get_sub_field() instead of get_field() //
-                        $imageSize = 'xl'; //  //
-                        $sizes = '(min-width: 768px) 33vw, 100vw'; // src-set sizes //
-                        $sizesPortrait = '(min-width: 768px) 33vw, 100vw'; // src-set sizes //
-                        $forceRatio = ''; // force image to specific ratio // 
-                        $outerClasses = ''; // 'imgOuter' additional classes
-                        $holderClasses = 'img-cover '; // 'imgHolder imgSpaced' additional classes
-                        $imgClasses = ''; // 'img' additional classes
-                        $imgSpaced = true; // add padding, and img is position:aboslute to prevent layout shift
-                        $dataOnly = false; // add src-set fields to data-src-set for js usage
-                        $loading = 'lazy'; // lazy or eager
-                        include( locate_template( 'snippets/image.php', false, false ) ); 
-                        ?>  
-                    </div>
-
-                <?php } ?>
-            
-
+               
             </div>
 
 

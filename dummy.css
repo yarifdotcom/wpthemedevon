@@ -1,0 +1,657 @@
+#content-holder.single-product form.cart .quantity, 
+/* #content-holder.single-product form.cart .reset_variations,  */
+#content-holder.single-product form.cart button.single_add_to_cart_button {
+    display: inherit !important;
+ }
+
+
+/* Style untuk form cart */
+#content-holder.single-product form.cart {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Style untuk quantity input */
+#content-holder.single-product form.cart .quantity {
+    position: relative;
+    width: 120px;
+}
+
+#content-holder.single-product form.cart .quantity input.qty {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+#content-holder.single-product form.cart .quantity input.qty:focus {
+    border-color: #0073e6;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 115, 230, 0.3);
+}
+
+/* Style untuk tombol Add to Cart */
+#content-holder.single-product form.cart .single_add_to_cart_button {
+    /* flex: 1; */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 300 !important;
+    background-color: transparent !important;
+    color: #000 !important;
+    text-transform: uppercase;
+    vertical-align: text-top;
+    border: 1px solid #000;
+    border-radius: 2em;
+    /* padding: 1.3em 3em; */
+    padding: 1em 3em;
+    text-decoration: none !important;
+    /* font-size: 0.95vw; */
+    font-size: 0.84vw;
+}
+
+#content-holder.single-product form.cart .single_add_to_cart_button:hover {
+    background-color: #6b5a4a !important; /* Warna coklat kayu lebih gelap */
+    color: #fff !important;
+}
+
+#content-holder.single-product form.cart .single_add_to_cart_button:hover {
+    background-color: #005bb5;
+    transform: translateY(-2px);
+}
+
+#content-holder.single-product form.cart .single_add_to_cart_button:active {
+    transform: translateY(0);
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 480px) {
+    #content-holder.single-product form.cart {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #content-holder.single-product form.cart .quantity {
+        width: 100%;
+    }
+
+    #content-holder.single-product form.cart .single_add_to_cart_button {
+        width: 100%;
+    }
+}
+
+
+.custom-notices-wrapper .woocommerce-message {
+    padding: 15px;
+    border: none;
+    margin-top: 3rem;
+    background-color: #fde8d2;
+}
+
+.custom-notices-wrapper .woocommerce-message a {
+    font-size: 12px;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.custom-notices-wrapper .woocommerce-message a:hover {
+    background-color: #654321 !important;
+}
+
+@media (min-width: 768px) {
+    #content-holder.page-template-cart .row {
+        display: flex;
+    }
+
+    .justify-content-center {
+        justify-content: center;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .pt-25em {
+        padding-top: 2.5em;
+    }
+
+    .pb-15em {
+        padding-bottom: 1.5em;
+    }
+
+    .d-flex {
+        display: flex !important;
+    }
+
+
+}
+
+/* Gaya dasar untuk tabel */
+.shop_table.cart {
+    box-shadow : 0 0 10px rgba(0, 0, 0, 0.1);;
+}
+
+/* Gaya dasar untuk tabel */
+.shop_table.cart {
+    min-width: 825px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    /* background-color: #f5f3f1;  */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Gaya untuk header tabel */
+.shop_table.cart thead th {
+    background-color:  #d3d3d3;
+     /* #8b7355;  */
+    padding: 15px;
+    text-align: left;
+    font-weight: 300;
+    /* color: #fff;  */
+    border-bottom: 2px solid #6b5a4a; /* Warna coklat kayu lebih gelap */
+}
+
+.shop_table.cart thead th.product-price, .shop_table thead th.product-subtotal{
+    color :  #000; 
+}
+
+/* Gaya untuk sel dalam tabel */
+.shop_table.cart tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #d3c1b0; /* Warna coklat kayu muda */
+    vertical-align: middle;
+}
+
+/* Gaya untuk gambar thumbnail produk */
+.shop_table.cart .product-thumbnail img {
+    width: 80px;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #d3c1b0; /* Warna coklat kayu muda */
+}
+
+/* Gaya untuk tombol hapus */
+.shop_table.cart .product-remove a {
+    color: #a0522d; /* Warna coklat kemerahan */
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.shop_table.cart .product-remove a:hover {
+    color: #8b4513; /* Warna coklat kemerahan lebih gelap */
+}
+
+/* Gaya untuk input kuantitas */
+.shop_table.cart .quantity input.qty {
+    width: 60px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #d3c1b0; /* Warna coklat kayu muda */
+    border-radius: 4px;
+    background-color: #f5f3f1; /* Warna latar belakang lembut */
+    color: #5a4a42; /* Warna teks coklat tua */
+}
+
+/* Gaya untuk subtotal dan harga */
+.shop_table .product-price,
+.shop_table .product-subtotal {
+    font-weight: bold;
+    color: #8b7355; /* Warna coklat kayu tua */
+}
+
+/* Gaya untuk bagian kupon dan tombol */
+.shop_table .actions {
+    padding: 15px;
+    /* background-color: #e0d7cf;  */
+    border-top: 2px solid #d3c1b0; /* Warna coklat kayu muda lebih gelap */
+}
+
+.shop_table .coupon {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.shop_table .coupon input.input-text {
+    padding: 1em 2em;
+    border: 1px solid #d3c1b0;
+    border-radius: 2em;
+    flex: 1;
+    /* background-color: #f5f3f1;  */
+    color: #5a4a42; /* Warna teks coklat tua */
+}
+
+.shop_table .coupon button.button {
+    padding: 1.3em 3em;
+    background-color: #8b7355; /* Warna coklat kayu tua */
+    color: #fff; /* Teks putih untuk kontras */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.shop_table .coupon button.button:hover {
+    background-color: #6b5a4a; /* Warna coklat kayu lebih gelap */
+}
+
+.shop_table .actions button.button {
+    background-color: transparent !important;
+    color: #000 !important;
+    text-transform: uppercase;
+    vertical-align: text-top;
+    border: 1px solid #d3c1b0;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none !important;
+    font-size: 0.95vw;
+    border-radius: 2em;
+}
+
+.shop_table .actions button.button:hover {
+    background-color: #6b5a4a !important; /* Warna coklat kayu lebih gelap */
+    color: #fff !important;
+}
+
+.shop_table .actions button.button[name="update_cart"] {
+    margin-top: 15px;
+    /* width: 100%; */
+    margin-bottom: 15px;
+}
+
+/* Gaya untuk responsivitas */
+@media (max-width: 768px) {
+    .shop_table .product-thumbnail img {
+        width: 60px;
+    }
+
+    .shop_table .quantity input.qty {
+        width: 50px;
+    }
+
+    .shop_table .coupon {
+        flex-direction: column;
+    }
+
+    .shop_table .coupon input.input-text {
+        width: 100%;
+    }
+
+    .shop_table .coupon button.button {
+        width: 100%;
+    }
+}
+
+.shop_table .cart-subtotal td span,
+.shop_table .order-total td span {
+    font-size: 1.3vw;
+    font-weight: bold;
+    color: #8b7355;
+}
+
+.shop_table .order-total td span {
+    font-size: 1.3vw;
+}
+
+@media (min-width: 768px) {
+    .woocommerce .cart-collaterals .wc-proceed-to-checkout {
+        /* padding-left: 55%; */
+        padding-left: 0px;
+    }
+
+    .woocommerce .cart-collaterals .wc-proceed-to-checkout a {
+        /* background-color: #8b7355 !important; */
+        background-color: transparent !important;
+        color: #000 !important;
+        text-transform: uppercase;
+        vertical-align: text-top;
+        border: 1px solid #000;
+        border-radius: 2em;
+        padding: 1.3em 3em;
+        text-decoration: none !important;
+        font-size: 0.95vw;
+    }
+
+    .woocommerce .cart-collaterals .wc-proceed-to-checkout a:hover {
+        background-color: #6b5a4a !important; /* Warna coklat kayu lebih gelap */
+        color: #fff !important;
+    }
+
+    .woocommerce-checkout #customer_details .woocommerce-billing-fields__field-wrapper label,
+    .woocommerce-checkout #customer_details .woocommerce-shipping-fields__field-wrapper label {
+        font-size: 1.3vw;
+    }
+}
+
+
+/* Gaya dasar untuk formulir checkout */
+form[name="checkout"].woocommerce-checkout {
+    /* background-color: #f5f3f1;  */
+    padding: 20px;
+    border-radius: 8px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    margin-top: 10px;
+}
+
+/* Gaya untuk judul bagian */
+form[name="checkout"].woocommerce-checkout h3 {
+    color: #6b5a4a; /* Warna coklat kayu tua */
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #d3c1b0; /* Warna coklat kayu muda */
+    padding-bottom: 10px;
+}
+
+/* Gaya untuk input dan select */
+form[name="checkout"].woocommerce-checkout input.input-text,
+form[name="checkout"].woocommerce-checkout select,
+form[name="checkout"].woocommerce-checkout textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d3c1b0; /* Warna coklat kayu muda */
+    border-radius: 4px;
+    background-color: #fff;
+    color: #5a4a42; /* Warna teks coklat tua */
+    /* font-size: 14px; */
+    margin-bottom: 15px;
+}
+
+form[name="checkout"].woocommerce-checkout input.input-text:focus,
+form[name="checkout"].woocommerce-checkout select:focus,
+form[name="checkout"].woocommerce-checkout textarea:focus {
+    border-color: #8b7355; /* Warna coklat kayu tua */
+    outline: none;
+}
+
+/* Gaya untuk label */
+form[name="checkout"].woocommerce-checkout label {
+    color: #5a4a42; /* Warna teks coklat tua */
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Gaya untuk tombol */
+form[name="checkout"].woocommerce-checkout button.button {
+    background-color: #8b7355; /* Warna coklat kayu tua */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+form[name="checkout"].woocommerce-checkout button.button:hover {
+    background-color: #6b5a4a; /* Warna coklat kayu lebih gelap */
+}
+
+/* Gaya untuk tabel ringkasan pesanan */
+.woocommerce-checkout-review-order-table {
+     width: 100%;
+}
+
+@media (min-width: 768px) {
+    .woocommerce-checkout h3#order_review_heading ,
+    .woocommerce-checkout #order_review {
+        /* width: 50%;
+        margin: 0 auto;
+        margin-top: 2em; */
+    }
+
+    .woocommerce-checkout #order_review {
+        width: 100%;
+    }
+}
+
+.woocommerce-checkout #customer_details h3,
+.woocommerce-checkout h3#order_review_heading {
+    font-size: initial;
+}
+
+.woocommerce-checkout #order_review table .order-total .amount {
+    font-size: 1.3vw;
+    font-weight: bold;
+}
+
+.woocommerce-shipping-methods li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.woocommerce-shipping-methods label {
+    color: #5a4a42; /* Warna teks coklat tua */
+}
+
+/* Gaya untuk bagian pembayaran */
+#payment {
+    /* background-color: #f5f3f1; */
+    /* padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px; */
+}
+
+#payment .woocommerce-info {
+    background-color: #e0d7cf; /* Warna coklat kayu muda */
+    color: #5a4a42; /* Warna teks coklat tua */
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+#payment .wc_payment_methods li {
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+#payment .wc_payment_methods label {
+    color: #5a4a42; /* Warna teks coklat tua */
+}
+
+/* Gaya untuk tombol "Place Order" */
+#payment .place-order button.button {
+    background-color: transparent !important;
+    color: #000 !important;
+    text-transform: uppercase;
+    vertical-align: text-top;
+    border: 1px solid #000;
+    border-radius: 2em;
+    padding: 1.3em 3em;
+    text-decoration: none !important;
+    font-size: 0.95vw;
+}
+
+.woocommerce-checkout #order_review #payment .form-row {
+    text-align: right;
+}
+
+#payment .place-order button.button:hover {
+    background-color: #6b5a4a !important; /* Warna coklat kayu lebih gelap */
+    color: #fff !important;
+}
+
+@media (min-width: 768px) {
+    form[name="checkout"].woocommerce-checkout #customer_details .col-1, 
+    form[name="checkout"].woocommerce-checkout #customer_details .col-2 {
+        width: 50%;
+    }
+
+    form[name="checkout"].woocommerce-checkout #customer_details .col-1, 
+    form[name="checkout"].woocommerce-checkout #customer_details .col-2 {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    form[name="checkout"] #customer_details {
+        display: flex;
+    }
+
+    form[name="checkout"].woocommerce-checkout label {
+        font-size: 1.3vw;
+    }
+}
+
+/* Gaya untuk wrapper select2 */
+.select2-container .select2-selection--single {
+    /* height: 35px !important;  */
+    /* font-size: 6vw; */
+    padding: 4px;
+    height: 100%;
+}
+
+/* Gaya untuk panah select2 */
+.select2-container .select2-selection__arrow {
+    height: 35px !important; /* Sesuaikan dengan tinggi input form */
+    top: 50% !important;
+    transform: translateY(-50%); /* Posisikan panah di tengah */
+}
+
+.product-act-add:hover,
+.product-act-select:hover {
+    background-color: #6b5a4a !important; /* Warna coklat kayu lebih gelap */
+    color: #fff !important;
+}
+
+.product-act-add,
+.product-act-select {
+    font-weight: 300 !important;
+    background-color: transparent !important;
+    color: #000 !important;
+    text-transform: uppercase;
+    vertical-align: text-top;
+    border: 1px solid #000;
+    border-radius: 2em;
+    padding: 1.3em 3em;
+    display: inline-block;
+    text-decoration: none !important;
+}
+
+/* Sembunyikan WooCommerce notices di halaman Cart saja */
+.woocommerce-cart .woocommerce-notices-wrapper {
+    display: none !important;
+}
+
+/* Variance */
+
+#content-holder.single-product .variations_form div {
+    width: 100%;
+}
+
+#content-holder.single-product .variations_form tr {
+    margin-bottom: 1em;
+}
+
+#content-holder.single-product .single_variation_wrap {
+    /* display: block !important; */
+    display: flex !important;
+    align-items: center;
+    gap: 15px;
+}
+
+#content-holder.single-product .single_variation_wrap .woocommerce-variation-add-to-cart {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/* Option only to avoid where variation is not listed well */
+#content-holder.single-product .single_variation_wrap .woocommerce-variation-add-to-cart.woocommerce-variation-add-to-cart-disabled {
+   display: none;
+}
+
+.woocommerce-error {
+    font-size: 1vw;
+}
+
+#content-holder.single-product form.cart button.single_add_to_cart_button:disabled {
+    background-color: #ccc; /* Warna latar belakang saat tombol dinonaktifkan */
+    cursor: not-allowed; /* Ubah kursor saat tombol dinonaktifkan */
+    opacity: 0.7; /* Kurangi opacity saat tombol dinonaktifkan */
+}
+
+.woocommerce .cart-collaterals .wc-proceed-to-checkout {
+    text-align: center;
+}
+
+.woocommerce-checkout #customer_details .woocommerce-billing-fields__field-wrapper span input, .woocommerce-checkout #customer_details .woocommerce-shipping-fields__field-wrapper span input {
+    padding: 10px; /* restore to default */
+}
+
+/* fix single product mobile view overide style.css*/
+@media (max-width: 767px) {
+    #content-holder.single-product .quote-col {
+        position: inherit;
+    }
+
+    #content-holder.single-product .variations_form {
+        min-height: 125vw;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    #content-holder.single-product .variations_form .woo-variation-raw-select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        text-align: center;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        color: #333;
+        transition: border-color 0.3s ease;
+    }
+
+    #content-holder.single-product .variations_form .reset_variations,
+    #content-holder.single-product form.cart .single_add_to_cart_button
+    {
+        font-size: 3vw;
+    }
+
+    #content-holder.single-product form.cart .single_add_to_cart_button {
+        /* padding: 0.5em 2em; */
+        justify-content: center;
+    }
+
+    #content-holder.single-product .single_variation_wrap {
+        display: block !important;
+    }
+
+    #contentHolder, #content-holder {
+        padding-top: 20vw;
+    }
+
+    .shop_table.cart {
+        min-width: 300px;
+    }
+
+    .shop_table .actions button.button,
+    .shop_table .actions button.button {
+        font-size: inherit;
+        padding: 0.5em;
+    }
+
+    .shop_table .cart-subtotal td span, .shop_table .order-total td span,
+    .woocommerce-checkout #order_review table .order-total .amount {
+        font-size: 6vw;
+    }
+
+    .woocommerce .cart-collaterals .wc-proceed-to-checkout .checkout-button {
+        padding: 1em 1.5em;
+    }
+
+    .select2-container .select2-selection--single { 
+        font-size: 6vw;
+        padding: 10px;
+    }
+}

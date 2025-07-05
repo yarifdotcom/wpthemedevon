@@ -15,20 +15,21 @@
 <?php 
 
 
-die(__FILE__);
+// die(__FILE__);
 
 
 $taxonomy = get_queried_object();
 $taxCount = $taxonomy->count;
 if($taxCount < 5){$countStyle = 'small-grid';} else {$countStyle = '';}
 ?>
-    
+<!--     
+<section class="content-section tax-grid insitu-grid mob-p-b-2 <php echo $countStyle;?>"> -->
 <section class="content-section tax-grid insitu-grid mob-p-b-2 <?php echo $countStyle;?>">
 	<div class="container-fluid">
 		<div class="row">
             
-            <div class="border-left left-line"></div>
-            <div class="border-left right-line"></div>       
+            <!-- <div class="border-left left-line"></div>
+            <div class="border-left right-line"></div>        -->
             
             <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
  
@@ -65,7 +66,7 @@ if($taxCount < 5){$countStyle = 'small-grid';} else {$countStyle = '';}
             
                  <nav class="navigation col col-sm-12 m-t-1 ">
 
-                    <p class="text60"><?php// posts_nav_link(); ?>
+                    <p class="text60">
 
                     <?php    
                     if ( get_previous_posts_link() ){
